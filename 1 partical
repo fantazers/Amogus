@@ -1,0 +1,4 @@
+import math
+x = 3.3
+y = (3*(x **2))*math.sqrt(((x*(math.sin(2*x)))/(math.cos(2*x)))+(math.e ** (-3*x)*(x **2)+4))
+print(f"Y будет равнятся = {y}")
