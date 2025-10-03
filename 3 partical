@@ -1,16 +1,12 @@
-import math 
-i = 0.5
-x = int(input("Введите x = "))
-while x in range(-5, 5):
+import math
+x = -5
+while x <= 5:
     if x <= 0:
         y = math.e ** (2 * x)
-        print(x, y)
-        x += i
-    elif (0 < x) and (x <=1):
+    if (0 < x) and (x <= 1):
         y = math.e ** (2 * x) - 2 * math.e ** x
-        print(x, y)
-        x += i
-    elif x > 1:
-        y = (math.e ** (2 * x) - 2 * math.e **x) ** 1/4
-        print(x, y)
-        x += i
+    if x > 1:
+        y = (math.e ** (2 * x) - 2 * math.e ** x) ** 1/4
+        
+    print(x, y)
+    x += 0.5
