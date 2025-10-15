@@ -1,0 +1,14 @@
+a = int(input("Введите количество чисел N: "))
+if a < 3:
+    print(0)
+else:
+    prev = int(input())
+    curr = int(input())
+    i = 0 
+    for _ in range(2, a):
+        nxt = int(input())
+
+        if curr > prev and curr > nxt:
+            i += 1
+        prev, curr = curr, nxt  
+    print("Количество элементов:", i)
