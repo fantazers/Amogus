@@ -1,0 +1,10 @@
+N = int(input("Введите количество чисел N: "))
+numbers = [int(input()) for _ in range(N)]
+
+processed = set()
+
+for num in numbers:
+    if num not in processed:
+        count = numbers.count(num)
+        print(f"{num} встречается {count} раз(а)")
+        processed.add(num)
