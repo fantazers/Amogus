@@ -1,19 +1,16 @@
-def lcs_recursive(s1, s2, i, j):
-    if i == 0 or j == 0:
-        return 0
+array = [1, 2, 1, 5] # массив лягушенка фрогии
+def count_jumps(arr):
+    pos = 0
+    jumps = 0
+    visited = set()
     
-    if s1[i-1] == s2[j-1]:
-        return 1 + lcs_recursive(s1, s2, i-1, j-1)
-    else:
-        return max(lcs_recursive(s1, s2, i, j-1), 
-                   lcs_recursive(s1, s2, i-1, j))
-
-def lcs(s1, s2):
-    return lcs_recursive(s1, s2, len(s1), len(s2))
-
-if __name__ == "__main__":
-    str1 = "AGGTAB"
-    str2 = "GXTXAYB"
+    while 0 <= pos < len(arr):
+        if pos in visited:
+            return -1
+        visited.add(pos)
+        pos += arr[pos]
+        jumps += 1
     
-    result = lcs(str1, str2)
-    print(f"Длина наибольшей общей подпоследовательности: {result}")
+    return jumps
+
+print(count_jumps(array))
