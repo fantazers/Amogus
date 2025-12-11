@@ -1,0 +1,26 @@
+n = int(input("Введите кол-во досок"))  
+boards = []
+for _ in range(n):
+    boards.append(float(input("Введите длину досок")))  
+D = float(input("Введите маx разницу досок"))  
+boards.sort()
+best_count = 0
+best_sum = 0
+for i in range(n):
+    current_sum = boards[i]
+    count = 1
+    for j in range(i + 1, n):
+        if boards[j] - boards[i] <= D:
+            current_sum += boards[j]
+            count += 1
+        else:
+            break
+
+    if count > best_count:
+        best_count = count
+        best_sum = current_sum
+    elif count == best_count and current_sum < best_sum:
+        best_sum = current_sum
+        
+print(best_count, end=" ")
+print(int(best_sum) if best_sum.is_integer() else f"{best_sum:.1f}")
